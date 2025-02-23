@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(14, 14, 20);
+  display: flex;
+  flex-direction: column;
+  min-width:420px;        /* Suppose you want minimum width of 1000px */
+  width:420px; 
+  width: auto !important;  /* Firefox will set width as auto */
+  min-height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+
+#container {
+  min-height: 100%;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 100px;
+  flex-direction: row;
+}
+
+.logo
+{
+  text-align: center; 
+  align-items: center; 
+  text-decoration: none
+}
+
+.items
+{
+  margin-top: 30px;
+  display:flex;
+  flex-direction: row;
+}
+
+footer {
+font-size: 44%;
+
+  margin-top: auto;
+  height: 50px;
+}
+
+::selection {
+  background: red;
+  color:#d9d9d9;
+}
+
+.intro {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #d9d9d9;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 500%;
+}
+
+
+p {
+  text-align: center;
+  color: #d9d9d9;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 200%;
+}
+.dark_mode_link {
+  color: rgb(183, 0, 255);
+  font-family:"Archivo Black";
+}
+
+
+
+
+.rgb_border {              /* Following code based on: https://ibelick.com/blog/create-animated-gradient-borders-with-css*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5%;
+  margin: 0% auto;
+  width: 20%;
+
+  border: 7px solid #63101000;
+  border-radius: 100px;
+
+  background: linear-gradient(#0c043a, #090714) padding-box, linear-gradient(
+        var(--angle),
+        #ff0000,
+        #ffa600
+      ) border-box;
+  animation: 3s rotate linear infinite;
+
+  font-family:"Black Ops One";
+  color: #d9d9d9;
+  font-size: 400%;
+}
+
+.associate_aws_cert {             
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5%;
+  margin: 0% auto;
+  width: 20%;
+
+  border: 7px solid #63101000;
+  border-radius: 100px;
+
+  background: linear-gradient(#0c043a, #090714) padding-box, linear-gradient(
+        var(--angle),
+        #002fff,
+        #00c3ff
+      ) border-box;
+  animation: 3s rotate linear infinite;
+
+  font-family:"Black Ops One";
+  color: #d9d9d9;
+  font-size: 400%;
+}
+
+.foundational_aws_cert {              
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5%;
+  margin: 0% auto;
+  width: 20%;
+
+  border: 7px solid #63101000;
+  border-radius: 100px;
+
+  background: linear-gradient(#0c043a, #090714) padding-box, linear-gradient(
+        var(--angle),
+        #c9cddf,
+        #828485
+      ) border-box;
+  animation: 3s rotate linear infinite;
+
+  font-family:"Black Ops One";
+  color: #d9d9d9;
+  font-size: 400%;
+}
+
+.vertically_scalable_chatroom_project {              
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5%;
+  margin: 0% auto;
+  width: 20%;
+
+  border: 7px solid #63101000;
+  border-radius: 100px;
+
+  background: linear-gradient(#0c043a, #090714) padding-box, linear-gradient(
+        var(--angle),
+        #0400ff,
+        #001aff
+      ) border-box;
+  animation: 3s rotate linear infinite;
+
+  font-family:"Black Ops One";
+  color: #d9d9d9;
+  font-size: 400%;
+}
+
+.webapp {              
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5%;
+  margin: 0% auto;
+  width: 20%;
+
+  border: 7px solid #63101000;
+  border-radius: 100px;
+
+  background: linear-gradient(#0c043a, #090714) padding-box, linear-gradient(
+        var(--angle),
+        #0400ff,
+        #001aff
+      ) border-box;
+  animation: 3s rotate linear infinite;
+
+  font-family:"Black Ops One";
+  color: #d9d9d9;
+  font-size: 400%;
+}
+
+
+.projectlogo {
+  width:340; 
+  height:340;
+}
+
+
+.awardwinner
+{
+  font-family:"WindSong";
+  font-size: 75%;
+  color: rgb(0, 255, 242);
+  margin-bottom: 3%;
+}
+
+.exptext
+{
+  font-size: 50%;
+  margin-bottom: 3%;
+}
+
+
+@keyframes rotate {
+to {
+  --angle: 360deg;
+}
+}
+@property --angle {
+syntax: "<angle>";
+initial-value: 0deg;
+inherits: false;
+}
+
+@media only screen and (max-width: 730px) {  /* Following code based on: https://www.shecodes.io/athena/74977-how-to-change-font-size-with-media and https://blisk.io/devices/details/iphone-11-pro-max#css-media-query*/
+  .rgb_border {
+    font-size: 150%;
+    border-radius: 50px;
+    padding: 14%;
+
+  }
+  .vertically_scalable_chatroom_project {
+    font-size: 150%;
+    border-radius: 50px;
+    padding: 14%;
+
+  }
+  .associate_aws_cert {
+    font-size: 150%;
+    border-radius: 50px;
+    padding: 14%;
+
+  }
+  .foundational_aws_cert {
+    font-size: 150%;
+    border-radius: 50px;
+    padding: 14%;
+
+  }
+  .webapp {
+    font-size: 200%;
+    border-radius: 50px;
+    padding: 14%;
+
+  }
+
+
+
+  footer
+  {
+    margin-top: auto;
+  }
+  .items {
+    flex-direction: column;
+    margin-top: auto;
+    gap: 50px;
+  }
+  img {
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 2000px) and (min-width: 731px){  
+  img {
+    max-width: 80%;
+    height: auto;
+  }
+    .rgb_border {
+    font-size: 2vmin;
+  }
+  .vertically_scalable_chatroom_project {
+    font-size: 2vmin;
+  }
+  .associate_aws_cert {
+    font-size: 2vmin;
+  }
+  .foundational_aws_cert {
+    font-size: 2vmin;
+  }
+  .webapp {
+    font-size: 2vmin;
+  }
+
+}
+
+@media only screen and (max-width: 1040px) and (min-width: 731px){  
+  .rgb_border {
+    font-size: 75%;
+  }
+  .vertically_scalable_chatroom_project {
+    font-size: 75%;
+  }
+  .associate_aws_cert {
+    font-size: 75%;
+  }
+  .foundational_aws_cert {
+    font-size: 75%;
+  }
+  .webapp {
+    font-size: 75%;
+  }
+}
+
+@media only screen and (max-width: 1700px) and (min-width: 1040px){  
+  .rgb_border {
+    font-size: 2vmin;
+  }
+  .vertically_scalable_chatroom_project {
+    font-size: 2vmin;
+  }
+  .associate_aws_cert {
+    font-size: 2vmin;
+  }
+  .foundational_aws_cert {
+    font-size: 2vmin;
+  }
+  .webapp {
+    font-size: 2vmin;
+  }
+}
