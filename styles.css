@@ -16,15 +16,20 @@ body {
   width: auto !important;  /* Firefox will set width as auto */
   min-height: 100%;
   margin: 0;
-  display: flex;
-  flex-direction: column;
 
   
 }
 
 
 #container {
+
   min-height: 100%;
+} 
+#container_projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }
 
 #main {
@@ -67,7 +72,23 @@ font-size: 44%;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 500%;
 }
+.center {
+  text-align: center;
+}
 
+.architecture {
+  margin-bottom: 2%;
+}
+
+
+.description {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  border: 5px dashed  red;
+  padding: 10px
+}
 
 p {
   text-align: center;
@@ -203,6 +224,31 @@ p {
   font-size: 400%;
 }
 
+.audvymeproject
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5%;
+  margin: 0% auto;
+  width: 20%;
+
+  border: 7px solid #63101000;
+  border-radius: 100px;
+
+  background: linear-gradient(rgb(14, 14, 20), rgb(14, 14, 20)) padding-box, linear-gradient(
+        var(--angle),
+        #ff0000,
+        #001aff
+      ) border-box;
+  animation: 3s rotate linear infinite;
+
+  font-family:"Black Ops One";
+  color: #d9d9d9;
+  font-size: 400%;
+}
+
 
 .projectlogo {
   width:340; 
@@ -223,6 +269,8 @@ p {
   font-size: 50%;
   margin-bottom: 3%;
 }
+
+
 
 
 @keyframes rotate {
@@ -267,9 +315,16 @@ inherits: false;
     padding: 14%;
 
   }
+  .audvymeproject {
+    font-size: 200%;
+    border-radius: 50px;
+    padding: 20%;
+  }
 
 
-
+  .intro{
+    font-size: 200%;
+  }
   footer
   {
     margin-top: auto;
@@ -282,9 +337,20 @@ inherits: false;
   img {
     width: 150px;
   }
+  .architecture {
+    width: 500px;
+  }
+  .vertically_scalable_architecture {
+    width: 500px;
+    height: 300px;
+  }
+  
+  
+
 }
 
-@media only screen and (max-width: 2000px) and (min-width: 731px){  
+@media only screen and (max-width: 2000px) and (min-width: 731px)
+{  
   img {
     max-width: 80%;
     height: auto;
@@ -302,6 +368,9 @@ inherits: false;
     font-size: 2vmin;
   }
   .webapp {
+    font-size: 2vmin;
+  }
+  .audvymeproject {
     font-size: 2vmin;
   }
 
@@ -322,6 +391,9 @@ inherits: false;
   }
   .webapp {
     font-size: 75%;
+  }
+  .intro{
+    font-size: 300%;
   }
 }
 

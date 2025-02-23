@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+   <link href="../styles.css" rel="stylesheet" /> 
+</head> 
+<body> 
+   <div id="container_projects">
+
+      <div class="logo">
+         <a href="https://audvy.me">
+           <div>
+             <img src="../favicon.ico" width="150" height="150" alt="projects">
+           </div>
+         </a>
+     </div>
+      <div class="intro">
+         The Hackathon Chatroom
+      </div>
+
+        <div class="center verticallyscalablearchitecture">
+            <img src="../images/verticallyscalablearchitecture.PNG" width="1920" height="1080" class="vertically_scalable_architecture">
+        </div>
+
+        <div class="description">
+            <p>The AWS Hosted Chatroom was my team's award-winning Hackathon project. At the University At Buffalo 2024 Hackathon, my team developed and developed a vertically scalable Chatroom architecture on the AWS cloud. 
+                After a series of intense judging rounds, our project won the Best Freshmen Hack award. Our application was built in Java and Kotlin and was deployed on Amazon EC2. 
+                Clients would download the application and connect to our chatroom servers. These servers made SQL read/write requests on an SQL Database running on another EC2 instance. 
+                The vertical scalable of our application comes from the application's integration with Amazon Cloudwatch. 
+                There existed a Cloudwatch Alarm that would invoke an SNS topic which would notify the Server Admin of our team of high EC2 CPU Utilization. 
+                The server admin would thus be able to upgrade the EC2 instance type whenever demand requested so. This architecture allowed our application to be able to vertically scale up to 100,000s of users. </p>
+        </div>
+     
+    </div>
+
+   <script src="https://s3.us-east-1.amazonaws.com/ip.audvy.me.api.get/prism.js"></script> 
+</body> 
+</html>

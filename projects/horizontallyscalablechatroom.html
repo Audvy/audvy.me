@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+   <link href="../styles.css" rel="stylesheet" /> 
+</head> 
+<body> 
+   <div id="container_projects">
+
+      <div class="logo">
+         <a href="https://audvy.me">
+           <div>
+             <img src="../favicon.ico" width="150" height="150" alt="projects">
+           </div>
+         </a>
+     </div>
+      <div class="intro">
+         The Highly Scalable Chatroom
+      </div>
+
+        <div class="center">
+            <img src="../images/RevisitedChatroomArchitecture.png" class="architecture">
+        </div>
+
+        <div class="description">
+            <p>Built as the successor to my team's Award-Winning Hackathon Project, the new highly scalable chatroom can horizontally scale to 100,000s of users using a robust architecture on AWS. 
+                The Chatroom was built using C#, .NET, and WPF forms. Two services were running on the cloud, the chatroom servers, and the server monitoring service. Each chatroom server would receive client traffic from the NLB, and distribute 
+                the traffic to the rest of the chatroom servers, using the Active Servers Table. This architecture allowed for a completely seamless experience from the client side, where users could be connected to different servers but flawlessly interact with 
+                each other as if they were connected to the same server. The chatroom server would also store the messages in the Messages Table, and store connected users in the Users Table.
+                When a new server was spun up, it would "badge in" into the server monitoring service. The monitoring service would log the servers' IPs into the Active Servers RDS Table. Then, the Server Monitoring service would continuously
+                ping the server's IP until a sequence of consecutive pings came back unhealthy. If deemed unhealthy, a server's IP would be deleted from the Active servers table and that server would no longer receive application traffic.</p>
+        </div>
+     
+    </div>
+
+   <script src="https://s3.us-east-1.amazonaws.com/ip.audvy.me.api.get/prism.js"></script> 
+</body> 
+</html>
