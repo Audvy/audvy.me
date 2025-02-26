@@ -22,7 +22,6 @@ body {
 
 
 #container {
-
   min-height: 100%;
 } 
 #container_projects {
@@ -37,7 +36,6 @@ body {
   padding-bottom: 100px;
   flex-direction: row;
 }
-
 .logo
 {
   text-align: center; 
@@ -50,6 +48,12 @@ body {
   margin-top: 30px;
   display:flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 5%;
+  row-gap: 75px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 footer {
@@ -135,7 +139,7 @@ p {
   font-size: 400%;
 }
 
-.associate_aws_cert {             
+.associate_aws_cert {       
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,10 +160,11 @@ p {
 
   font-family:"Black Ops One";
   color: #d9d9d9;
-  font-size: 400%;
+  font-size: 3vmin;
 }
 
-.foundational_aws_cert {              
+.foundational_aws_cert {       
+     
   display: flex;
   justify-content: center;
   align-items: center;
@@ -180,7 +185,7 @@ p {
 
   font-family:"Black Ops One";
   color: #d9d9d9;
-  font-size: 400%;
+  font-size: 3vmin;
 }
 
 .vertically_scalable_chatroom_project {              
@@ -522,7 +527,7 @@ inherits: false;
     max-width: 80%;
     height: auto;
   }
-    .rgb_border {
+  .rgb_border {
     font-size: 2vmin;
   }
   .vertically_scalable_chatroom_project {
