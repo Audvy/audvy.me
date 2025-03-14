@@ -46,6 +46,7 @@ body {
 .items
 {
   margin-top: 30px;
+  margin-left: 0px;
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -144,7 +145,7 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 2.5%;
+  padding: 3%;
   margin: 0% auto;
   width: 20%;
 
@@ -160,7 +161,7 @@ p {
 
   font-family:"Black Ops One";
   color: #d9d9d9;
-  font-size: 3vmin;
+  font-size: 2.5vmin;
 }
 
 .foundational_aws_cert {       
@@ -210,6 +211,30 @@ p {
   font-family:"Black Ops One";
   color: #d9d9d9;
   font-size: 400%;
+}
+
+.saddleback {              
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5%;
+  margin: 0% auto;
+  width: 20%;
+
+  border: 7px solid #63101000;
+  border-radius: 100px;
+
+  background: linear-gradient(#0c043a, #090714) padding-box, linear-gradient(
+        var(--angle),
+        #ff0000,
+        #aa2727
+      ) border-box;
+  animation: 3s rotate linear infinite;
+
+  font-family:"Black Ops One";
+  color: #d9d9d9;
+  font-size: 2.5vmin;
 }
 
 .webapp {              
@@ -322,6 +347,12 @@ inherits: false;
     padding: 16%;
 
   }
+  .saddleback {
+    font-size: 100%;
+    border-radius: 50px;
+    padding: 16%;
+
+  }
   .webapp {
     font-size: 100%;
     border-radius: 50px;
@@ -368,6 +399,14 @@ inherits: false;
   
 
 }
+@media only screen and (max-width: 401px) {
+  img {
+    width: 125px;
+    height: auto;
+  }
+}
+
+
 @media only screen and (max-width: 730px) and (min-width: 401px) {  /* Following code based on: https://www.shecodes.io/athena/74977-how-to-change-font-size-with-media and https://blisk.io/devices/details/iphone-11-pro-max#css-media-query*/
   .rgb_border {
     font-size: 150%;
@@ -388,6 +427,12 @@ inherits: false;
 
   }
   .foundational_aws_cert {
+    font-size: 150%;
+    border-radius: 50px;
+    padding: 14%;
+
+  }
+  .saddleback {
     font-size: 150%;
     border-radius: 50px;
     padding: 14%;
@@ -427,7 +472,8 @@ inherits: false;
     gap: 50px;
   }
   img {
-    width: 150px;
+    width: 160px;
+    height: auto;
   }
   .architecture {
     width: 500px;
@@ -461,6 +507,12 @@ inherits: false;
 
   }
   .foundational_aws_cert {
+    font-size: 150%;
+    border-radius: 50px;
+    padding: 14%;
+
+  }
+  .saddleback {
     font-size: 150%;
     border-radius: 50px;
     padding: 14%;
@@ -506,7 +558,8 @@ inherits: false;
     width: 300px;
   }
   img {
-    width: 150px;
+    width: 300px;
+    height: auto;
   }
 
   .architecture {
@@ -539,6 +592,9 @@ inherits: false;
   .foundational_aws_cert {
     font-size: 2vmin;
   }
+  .saddleback {
+    font-size: 2vmin;
+  }
   .webapp {
     font-size: 2vmin;
   }
@@ -562,6 +618,9 @@ inherits: false;
     font-size: 60%;
   }
   .foundational_aws_cert {
+    font-size: 60%;
+  }
+  .saddleback {
     font-size: 60%;
   }
   .webapp {
@@ -592,6 +651,9 @@ inherits: false;
     font-size: 2vmin;
   }
   .foundational_aws_cert {
+    font-size: 2vmin;
+  }
+  .saddleback {
     font-size: 2vmin;
   }
   .webapp {
