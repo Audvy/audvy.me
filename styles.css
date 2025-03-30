@@ -16,8 +16,6 @@ body {
   width: auto !important;  /* Firefox will set width as auto */
   min-height: 100%;
   margin: 0;
-
-  
 }
 
 
@@ -58,10 +56,18 @@ body {
 }
 
 footer {
-font-size: 44%;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 44%;
   margin-top: auto;
   height: 50px;
+}
+
+.footer_icons {
+  width: 25px;
+  margin-left: 20px
 }
 
 ::selection {
@@ -76,6 +82,11 @@ font-size: 44%;
   color: #d9d9d9;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 700%;
+}
+
+.page_logo
+{
+
 }
 .topic {
   padding: 30px;
@@ -109,7 +120,7 @@ p {
   font-size: 200%;
 }
 .dark_mode_link {
-  color: rgb(183, 0, 255);
+  color: rgb(255, 0, 0);
   font-family:"Archivo Black";
 }
 
@@ -307,7 +318,25 @@ p {
   margin-bottom: 3%;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #9b1212; 
+}
 
 
 @keyframes rotate {
@@ -322,7 +351,7 @@ inherits: false;
 }
 
 
-@media only screen and (max-width: 400px) {  /* Following code based on: https://www.shecodes.io/athena/74977-how-to-change-font-size-with-media and https://blisk.io/devices/details/iphone-11-pro-max#css-media-query*/
+@media only screen and (max-width: 521px) {  /* Following code based on: https://www.shecodes.io/athena/74977-how-to-change-font-size-with-media and https://blisk.io/devices/details/iphone-11-pro-max#css-media-query*/
   .rgb_border {
     font-size: 100%;
     border-radius: 50px;
@@ -385,29 +414,28 @@ inherits: false;
     margin-top: auto;
     gap: 50px;
   }
-  img {
+  .page_logo {
     width: 150px;
   }
   .architecture {
-    width: 500px;
+    width: 300px;
   }
-  .vertically_scalable_architecture {
-    width: 500px;
-    height: 300px;
+  .architecture {
+    width: 300px;
   }
   
   
 
 }
-@media only screen and (max-width: 401px) {
-  img {
+@media only screen and (max-width: 520px) {
+  .page_logo {
     width: 125px;
     height: auto;
   }
 }
 
 
-@media only screen and (max-width: 730px) and (min-width: 401px) {  /* Following code based on: https://www.shecodes.io/athena/74977-how-to-change-font-size-with-media and https://blisk.io/devices/details/iphone-11-pro-max#css-media-query*/
+@media only screen and (max-width: 730px) and (min-width: 521px) {  /* Following code based on: https://www.shecodes.io/athena/74977-how-to-change-font-size-with-media and https://blisk.io/devices/details/iphone-11-pro-max#css-media-query*/
   .rgb_border {
     font-size: 150%;
     border-radius: 50px;
@@ -471,7 +499,7 @@ inherits: false;
     margin-top: auto;
     gap: 50px;
   }
-  img {
+  .page_logo {
     width: 160px;
     height: auto;
   }
@@ -479,8 +507,7 @@ inherits: false;
     width: 500px;
   }
   .vertically_scalable_architecture {
-    width: 500px;
-    height: 300px;
+    width: 400px;
   }
   
   
@@ -557,7 +584,7 @@ inherits: false;
   .project_logo {
     width: 300px;
   }
-  img {
+  .page_logo {
     width: 300px;
     height: auto;
   }
@@ -576,7 +603,7 @@ inherits: false;
 
 @media only screen and (max-width: 2000px) and (min-width: 1001px)
 {  
-  img {
+  .page_logo {
     max-width: 80%;
     height: auto;
   }
