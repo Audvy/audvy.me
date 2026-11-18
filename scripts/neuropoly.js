@@ -365,10 +365,8 @@ export function createChipScene(card, reducedMotion) {
   function readSilhouette() {
     if (!brain.naturalWidth) return;
     const probe = document.createElement('canvas');
-    probe.width = 192;
-    probe.height = Math.round(
-      (probe.width * brain.naturalHeight) / brain.naturalWidth,
-    );
+    probe.width = brain.naturalWidth;
+    probe.height = brain.naturalHeight;
     const sampler = probe.getContext('2d');
     if (!sampler) return;
     sampler.drawImage(brain, 0, 0, probe.width, probe.height);
@@ -382,7 +380,7 @@ export function createChipScene(card, reducedMotion) {
     if (u < 0 || u >= 1 || v < 0 || v >= 1) return false;
     const row = Math.floor(v * silhouette.height);
     const col = Math.floor(u * silhouette.width);
-    return silhouette.data[(row * silhouette.width + col) * 4 + 3] >= 153;
+    return silhouette.data[(row * silhouette.width + col) * 4 + 3] >= 48;
   }
 
   function makePaths(x, y) {
@@ -484,7 +482,11 @@ export function createChipScene(card, reducedMotion) {
   }
 
   function schedule() {
-    if (visible && !reducedMotion.matches && !frame)
+    if (
+      (visible || pointer || mode !== 'docked') &&
+      !reducedMotion.matches &&
+      !frame
+    )
       frame = requestAnimationFrame(tick);
   }
 
@@ -494,21 +496,23 @@ export function createChipScene(card, reducedMotion) {
     last = now;
     const clamp = (value, max) =>
       Math.max(chipRadius, Math.min(max - chipRadius, value));
-    const x = pointer ? clamp(pointer.x * width, width) : dockX;
-    const y = pointer ? clamp(pointer.y * height, height) : dockY;
-    const targetOnBrain = pointer && isBrainSurface(x, y);
-    const motion = 1 - Math.exp(-dt * (targetOnBrain ? 22 : pointer ? 13 : 9));
+    // Check the cursor itself before clamping the position of a lifted chip.
+    const onSurface = pointer !== null && isBrainSurface(pointer.x, pointer.y);
+    const x = onSurface ? pointer.x : pointer ? clamp(pointer.x, width) : dockX;
+    const y = onSurface
+      ? pointer.y
+      : pointer
+        ? clamp(pointer.y, height)
+        : dockY;
+    const motion = 1 - Math.exp(-dt * (onSurface ? 22 : pointer ? 13 : 9));
     position.x += (x - position.x) * motion;
     position.y += (y - position.y) * motion;
-    const touchingBrain =
-      targetOnBrain && isBrainSurface(position.x, position.y);
-    const lift = pointer && !touchingBrain ? 1 : 0;
+    const lift = pointer && !onSurface ? 1 : 0;
     position.lift += (lift - position.lift) * motion;
     const atDock =
       !pointer &&
       Math.hypot(position.x - dockX, position.y - dockY) < 1.3 &&
       position.lift < 0.045;
-    const onSurface = touchingBrain && position.lift < 0.2;
     const next = atDock ? 'docked' : onSurface ? 'surface' : 'lifted';
 
     if (atDock) {
@@ -516,6 +520,11 @@ export function createChipScene(card, reducedMotion) {
       position.y = dockY;
       position.lift = 0;
     } else if (onSurface) {
+      // If easing would leave the chip off the silhouette, land at the cursor.
+      if (!isBrainSurface(position.x, position.y)) {
+        position.x = x;
+        position.y = y;
+      }
       position.lift = 0;
     }
     if (next !== mode) {
@@ -566,8 +575,9 @@ export function createChipScene(card, reducedMotion) {
   else brain.addEventListener('load', readSilhouette, { once: true });
   measure();
   return {
-    target(x, y) {
-      pointer = { x, y };
+    target(clientX, clientY) {
+      const { left, top } = layer.getBoundingClientRect();
+      pointer = { x: clientX - left, y: clientY - top };
       schedule();
     },
     release() {

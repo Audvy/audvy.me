@@ -16,6 +16,8 @@ const cursorGlow = document.querySelector('.cursor-glow');
 let typingTimer = 0;
 let trackedCard = null;
 let frameId = 0;
+let resumeFrame = 0;
+let mouseInDocument = false;
 let mouseX = 0;
 let mouseY = 0;
 let glowX = 0;
@@ -75,7 +77,7 @@ function updateCard() {
   const y = (mouseY - bounds.top) / bounds.height;
   if (card.classList.contains('neuropoly-card')) {
     lavaScene?.target(x, y);
-    chipScene?.target(x, y);
+    chipScene?.target(mouseX, mouseY);
     return;
   }
   const angle = (Math.atan2(y - 0.5, x - 0.5) * 180) / Math.PI + 90;
@@ -91,19 +93,45 @@ function resetPointer() {
   setTrackedCard(null);
 }
 
+function showPointer() {
+  if (!cursorGlow.classList.contains('is-visible')) {
+    glowX = mouseX;
+    glowY = mouseY;
+    cursorGlow.classList.add('is-visible');
+  }
+  updateCard();
+  if (!frameId) frameId = requestAnimationFrame(paintPointer);
+}
+
+function rememberMouse(event) {
+  if (!trackMouse.matches || event.pointerType !== 'mouse' || document.hidden)
+    return;
+  mouseInDocument = true;
+  mouseX = event.clientX;
+  mouseY = event.clientY;
+  showPointer();
+}
+
+function resumePointer() {
+  if (resumeFrame) return;
+  resumeFrame = requestAnimationFrame(() => {
+    resumeFrame = 0;
+    // Switching tabs may not send a new pointermove at the saved position.
+    if (
+      mouseInDocument &&
+      trackMouse.matches &&
+      !document.hidden &&
+      document.hasFocus()
+    )
+      showPointer();
+  });
+}
+
+window.addEventListener('pointermove', rememberMouse, { passive: true });
 window.addEventListener(
-  'pointermove',
+  'pointerover',
   (event) => {
-    if (!trackMouse.matches || event.pointerType !== 'mouse') return;
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-    if (!cursorGlow.classList.contains('is-visible')) {
-      glowX = mouseX;
-      glowY = mouseY;
-      cursorGlow.classList.add('is-visible');
-    }
-    updateCard();
-    if (!frameId) frameId = requestAnimationFrame(paintPointer);
+    if (event.relatedTarget === null) rememberMouse(event);
   },
   { passive: true },
 );
@@ -117,13 +145,26 @@ window.addEventListener(
 window.addEventListener(
   'pointerdown',
   (event) => {
-    if (event.pointerType !== 'mouse') resetPointer();
+    if (event.pointerType !== 'mouse') {
+      mouseInDocument = false;
+      resetPointer();
+    }
   },
   { passive: true },
 );
-document.documentElement.addEventListener('pointerleave', resetPointer);
+document.documentElement.addEventListener('pointerleave', (event) => {
+  if (event.pointerType !== 'mouse') return;
+  if (!document.hidden && document.hasFocus()) mouseInDocument = false;
+  resetPointer();
+});
 window.addEventListener('blur', resetPointer);
+window.addEventListener('focus', resumePointer);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) resetPointer();
+  else resumePointer();
+});
 window.addEventListener('pagehide', resetPointer);
+window.addEventListener('pageshow', resumePointer);
 trackMouse.addEventListener('change', resetPointer);
 reducedMotion.addEventListener('change', () => typeGreeting(false));
 
