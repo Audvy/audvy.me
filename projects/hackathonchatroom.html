@@ -1,57 +1,127 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-   <link href="../styles.css" rel="stylesheet" /> 
-
-   <title>AWS Hosted Chatroom</title>
-   <link rel="icon" href="https://s3.us-east-1.amazonaws.com/audvy.me/favicon.ico">    <!--based on https://www.w3schools.com/html/html_favicon.asp -->
-   <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta property="og:title" content="AWS Hosted Chatroom"/>
-   <meta property="og:image" content="https://s3.us-east-1.amazonaws.com/audvy.me/logo.jpg"/>
-   <meta property="og:description" content="The AWS Hosted Chatroom was my team's award-winning Hackathon project. At the University At Buffalo 2024 Hackathon, my team developed and..."/>
-   <meta property="og:url" content="https://audvy.me"/>
-   <meta property="og:image:width" content="1920" />
-   <meta property="og:image:height" content="1920"/>
-   <meta property="og:type" content="Personal Website"> <!--based on https://stackoverflow.com/questions/72198755/how-to-add-a-thumbnail-for-your-website-using-html -->
-   <meta name="author" content="Audvy">
-
-</head> 
-<body> 
-   <div id="container_projects">
-
-      <div class="logo">
-         <a href="https://audvy.me">
-           <div>
-             <img src="../favicon.ico" width="150" height="150" alt="projects">
-           </div>
-         </a>
-     </div>
-      <div class="intro">
-         The AWS Hosted Chatroom
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050506" />
+    <title>AWS Hosted Chatroom · Audvy</title>
+    <meta
+      name="description"
+      content="The original real-time chatroom, backed by EC2, SQL, and CloudWatch alerts."
+    />
+    <link
+      rel="canonical"
+      href="https://audvy.me/projects/hackathonchatroom.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AWS Hosted Chatroom · Audvy" />
+    <meta
+      property="og:description"
+      content="The original real-time chatroom, backed by EC2, SQL, and CloudWatch alerts."
+    />
+    <meta
+      property="og:url"
+      content="https://audvy.me/projects/hackathonchatroom.html"
+    />
+    <meta property="og:image" content="https://audvy.me/logo.jpg" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module" src="../scripts/site.js"></script>
+  </head>
+  <body>
+    <canvas class="starfield" aria-hidden="true"></canvas>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <a class="skip" href="#main-content">Skip to content</a>
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="../" aria-label="Audvy home"
+          ><span class="mark" aria-hidden="true"></span>audvy.me</a
+        >
+        <nav aria-label="Main navigation">
+          <a href="../">Home</a>
+          <a href="../projects.html" aria-current="page">Projects</a>
+          <a href="../certifications.html">Certifications</a>
+          <a href="../webapps.html">Web Apps</a>
+        </nav>
+        <a class="button" href="mailto:audvy@audvy.me"
+          >Get in touch <span class="arr" aria-hidden="true"></span
+        ></a>
       </div>
-
-        <div class="center architecture">
-            <img src="../images/verticallyscalablearchitecture.PNG" width="1920" height="1080" class="architecture">
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="wrap page-content">
+        <div class="case-head">
+          <a class="textlink" href="../projects.html">All projects</a>
+          <div class="page-intro">
+            <div class="kicker">Cloud applications</div>
+            <h1>AWS Hosted Chatroom</h1>
+            <p>
+              The original real-time chatroom, backed by EC2, SQL, and
+              CloudWatch alerts.
+            </p>
+          </div>
         </div>
-
-        <div class="description">
-            <p>The AWS Hosted Chatroom was my team's award-winning Hackathon project. At the University At Buffalo 2024 Hackathon, my team developed and developed a vertically scalable Chatroom architecture on the AWS cloud. 
-                After a series of intense judging rounds, our project won the Best Freshmen Hack award. Our application was built in Java and Kotlin and was deployed on Amazon EC2. 
-                Clients would download the application and connect to our chatroom servers. These servers made SQL read/write requests on an SQL Database running on another EC2 instance. 
-                The vertical scalable of our application comes from the application's integration with Amazon Cloudwatch. 
-                There existed a Cloudwatch Alarm that would invoke an SNS topic which would notify the Server Admin of our team of high EC2 CPU Utilization. 
-                The server admin would thus be able to upgrade the EC2 instance type whenever demand requested so. This architecture allowed our application to be able to vertically scale up to 100,000s of users. </p>
+        <figure class="case-image light">
+          <img
+            src="../images/hackathon-chatroom.webp"
+            width="1640"
+            height="908"
+            decoding="async"
+            alt="Diagram of the original EC2 chatroom and its monitoring setup"
+          />
+          <figcaption>
+            Architecture diagram for the original hackathon chatroom.
+          </figcaption>
+        </figure>
+        <div class="case-copy">
+          <section>
+            <h2>Building the first version</h2>
+            <p>
+              Our team built a Java and Kotlin chat client at the 2024
+              University at Buffalo Hackathon. Clients connected to a chat
+              server on Amazon EC2, which stored data in a SQL database on a
+              separate instance.
+            </p>
+            <p>
+              A CloudWatch alarm notified the team through SNS when CPU
+              utilization ran high, giving an administrator the information
+              needed to upgrade the instance as demand grew.
+            </p>
+          </section>
+          <aside class="case-aside">
+            <h2>Tools &amp; methods</h2>
+            <p class="award">Best Freshmen Hack · UB 2024</p>
+            <div class="chips">
+              <span>Java</span><span>Kotlin</span><span>Amazon EC2</span
+              ><span>SQL</span><span>CloudWatch</span><span>SNS</span>
+            </div>
+          </aside>
         </div>
-     
-    </div>
-
-    <footer>
-      <p> Contact: 
-      <a href="mailto:audvy@audvy.me" class="dark_mode_link">audvy@audvy.me</a>
-      </p>
-      <a href="https://www.linkedin.com/in/audvy/" target="_blank" class="footer_icons"><img src="https://www.linkedin.com/favicon.ico" width="25" height="25" style="" alt="LinkedIn Profile"></a>
-      <a href="https://github.com/Audvy" target="_blank" class="footer_icons"><img src="../github_logo_icon.ico" width="25" height="25" style="" alt="GitHub Profile"></a>
-  </footer>
-</body> 
+      </div>
+    </main>
+    <footer class="contact">
+      <div class="wrap">
+        <div class="contact-top">
+          <div>
+            <div class="kicker">Contact</div>
+            <h2>Let’s connect.</h2>
+            <p>Reach out about research, engineering, or a project.</p>
+          </div>
+          <a class="button primary" href="mailto:audvy@audvy.me"
+            >audvy@audvy.me <span class="arr" aria-hidden="true"></span
+          ></a>
+        </div>
+        <div class="footer-row">
+          <a class="brand" href="../"
+            ><span class="mark" aria-hidden="true"></span>audvy.me</a
+          >
+          <div>
+            <a href="https://github.com/Audvy">GitHub</a
+            ><a href="https://www.linkedin.com/in/audvy/">LinkedIn</a
+            ><a href="../">Home</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

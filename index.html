@@ -1,132 +1,224 @@
-<!DOCTYPE html>
-<html>
-    <title>Audvy's Portal</title>
-    <link rel="icon" href="https://s3.us-east-1.amazonaws.com/audvy.me/favicon.ico">    <!--based on https://www.w3schools.com/html/html_favicon.asp -->
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Audvy's site"/>
-    <meta property="og:image" content="https://s3.us-east-1.amazonaws.com/audvy.me/logo.jpg"/>
-    <meta property="og:description" content="The audvy.me Project. A launch pad for all my future web dev endeavors."/>
-    <meta property="og:url" content="https://audvy.me"/>
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:image:height" content="1920"/>
-    <meta property="og:type" content="Personal Website"> <!--based on https://stackoverflow.com/questions/72198755/how-to-add-a-thumbnail-for-your-website-using-html -->
-    <meta name="author" content="Audvy">
-    <meta property="theme-color" content="#ff0000">
-
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-</html>
-
-<body onload = "typeWriter()">
-    <div id="container">
-        <div id="main">
-
-          <div class="logo">
-              <a href="https://audvy.me">
-                <div>
-                  <img src="favicon.ico" width="150" height="150" alt="projects">
-                </div>
-              </a>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050506" />
+    <title>Audvy — Brain-computer interface research</title>
+    <meta
+      name="description"
+      content="I’m Audvy. I research brain-computer interfaces to help individuals with disabilities."
+    />
+    <link rel="canonical" href="https://audvy.me/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Audvy — Brain-computer interface research"
+    />
+    <meta
+      property="og:description"
+      content="I’m Audvy. I research brain-computer interfaces to help individuals with disabilities."
+    />
+    <meta property="og:url" content="https://audvy.me/" />
+    <meta property="og:image" content="https://audvy.me/logo.jpg" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./scripts/site.js"></script>
+  </head>
+  <body>
+    <canvas class="starfield" aria-hidden="true"></canvas>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <a class="skip" href="#main-content">Skip to content</a>
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="./" aria-label="Audvy home"
+          ><span class="mark" aria-hidden="true"></span>audvy.me</a
+        >
+        <nav aria-label="Main navigation">
+          <a href="./" aria-current="page">Home</a>
+          <a href="./projects.html">Projects</a>
+          <a href="./certifications.html">Certifications</a>
+          <a href="./webapps.html">Web Apps</a>
+        </nav>
+        <a class="button" href="mailto:audvy@audvy.me"
+          >Get in touch <span class="arr" aria-hidden="true"></span
+        ></a>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="wrap">
+        <section class="hero">
+          <div class="hero-art" aria-hidden="true">
+            <span class="mark"></span>
           </div>
-                  
-            
-          
-
-            <h1 class="main intro" id="title"></h1> 
-            <h1 class="topic" id="description"></h1> 
-            <script>                                              // Code based on https://www.w3schools.com/HOWTO/howto_js_typewriter.asp
-              var i = 0; 
-              var j = 0; 
-              var txt = 'Hi, I\'m Audvy!';
-              var description = 'I do Brain-Computer Interface research. Wanna connect? Reach out!';
-              var timeout_for_title = 75;
-              var timeout_for_description = 54;
-                
-              function typeWriter() {
-                if (i < txt.length)
-                {
-                  document.getElementById("title").innerHTML += txt.charAt(i);
-                  i++;
-                  setTimeout(typeWriter, timeout_for_title);
-                } 
-                else if (i == txt.length) {
-                    if (j < description.length) 
-                    {
-                      document.getElementById("description").innerHTML += description.charAt(j);
-                      j++;
-                      setTimeout(typeWriter, timeout_for_description);
-                    } 
-                } 
-              }
-              
-              </script> 
-
-              
-            
-            <div class="items">
-
-                <a href="projects.html" class="rgb_border" style="text-align: center; align-items: center; text-decoration: none">
-                    <div>
-
-                      <img src="images/projects.png" class="page_logo" alt="projects">
-
-                    </div>
-
-                    <div>
-                      Projects
-                    </div>
-                    
-                </a>
-
-              <a href="certifications.html" class="rgb_border" style="text-align: center; align-items: center; text-decoration: none">
-                <div>
-
-                  <img src="images/certifications.png" class="page_logo" alt="certifications">
-
-                </div>
-
-
-                <div>
-                  Certifcations
-                </div>
-
-
-              </a>
-
-
-              <a href="webapps.html" class="rgb_border" style="text-align: center; align-items: center; text-decoration: none">
-
-                <div>
-
-                  <img src="images/webapps.png" class="page_logo" alt="webapps">
-                </div>
-
-                <div>
-                  Web Apps
-                </div>
-
-              </a>
-
+          <div class="hero-copy">
+            <div class="kicker">Audvy · Research &amp; engineering</div>
+            <h1 aria-label="Hello,">
+              <span class="greeting-text" aria-hidden="true">Hello,</span
+              ><span class="greeting-caret" aria-hidden="true"></span>
+            </h1>
+            <p>
+              I’m Audvy. I research brain-computer interfaces to help
+              individuals with disabilities.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="./projects.html"
+                >Explore projects
+                <span class="arr down" aria-hidden="true"></span></a
+              ><a class="button" href="https://github.com/Audvy"
+                >GitHub <span class="arr" aria-hidden="true"></span
+              ></a>
             </div>
-
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-head">
+            <h2>Selected projects</h2>
+            <a class="textlink" href="./projects.html"
+              >All projects <span class="arr" aria-hidden="true"></span
+            ></a>
+          </div>
+          <div class="project-grid">
+            <a
+              class="project-card feature neuropoly-card"
+              href="./projects/neuropoly.html"
+            >
+              <canvas class="lava-field" aria-hidden="true"></canvas>
+              <div class="card-image project-art">
+                <div class="brain-mark">
+                  <img
+                    src="./images/neuropoly-brain.webp"
+                    width="1200"
+                    height="900"
+                    decoding="async"
+                    alt="Smoked-glass brain with a small red-lit chip"
+                  /><canvas class="brain-signals" aria-hidden="true"></canvas
+                  ><span class="chip-dock" aria-hidden="true"></span>
+                  <div class="brain-chip">
+                    <div class="chip-package">
+                      <div class="chip-core"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="chip-layer" aria-hidden="true"></div>
+              <div class="card-body">
+                <div class="tagline">
+                  Brain–computer interfaces<span class="award"
+                    >2nd Best Hack · UB 2025</span
+                  >
+                </div>
+                <h3>Neuropoly</h3>
+                <p>
+                  An EEG-powered interface that translates visual attention into
+                  moves on an online Monopoly board.
+                </p>
+                <span class="textlink"
+                  >Read case study <span class="arr" aria-hidden="true"></span
+                ></span>
+              </div>
+            </a>
+            <a
+              class="project-card"
+              href="./projects/horizontallyscalablechatroom.html"
+            >
+              <div class="card-image">
+                <img
+                  src="./images/scalable-chatroom.webp"
+                  width="1640"
+                  height="923"
+                  decoding="async"
+                  alt="AWS diagram showing the load balancer, chat servers and data stores"
+                />
+              </div>
+              <div class="card-body">
+                <div class="tagline">Cloud architecture</div>
+                <h3>Horizontally Scalable Chatroom</h3>
+                <p>
+                  An AWS redesign that distributes chat traffic across servers
+                  so users can talk across instances.
+                </p>
+                <span class="textlink"
+                  >Read case study <span class="arr" aria-hidden="true"></span
+                ></span>
+              </div>
+            </a>
+            <a class="project-card" href="./projects/hackathonchatroom.html">
+              <div class="card-image">
+                <img
+                  src="./images/hackathon-chatroom.webp"
+                  width="1640"
+                  height="908"
+                  decoding="async"
+                  alt="Diagram of the original EC2 chatroom and its monitoring setup"
+                />
+              </div>
+              <div class="card-body">
+                <div class="tagline">
+                  Cloud applications<span class="award"
+                    >Best Freshmen Hack · UB 2024</span
+                  >
+                </div>
+                <h3>AWS Hosted Chatroom</h3>
+                <p>
+                  The original real-time chatroom, backed by EC2, SQL, and
+                  CloudWatch alerts.
+                </p>
+                <span class="textlink"
+                  >Read case study <span class="arr" aria-hidden="true"></span
+                ></span>
+              </div>
+            </a>
+          </div>
+        </section>
+        <section class="section" aria-labelledby="more-resources">
+          <h2 id="more-resources" class="visually-hidden">
+            Certifications and web apps
+          </h2>
+          <div class="summary-grid">
+            <a class="summary" href="./certifications.html"
+              ><span class="symbol" aria-hidden="true">◇</span>
+              <div>
+                <h3>Certifications</h3>
+                <p>AWS and Saddleback College credentials.</p>
+              </div>
+              <span class="arr inline-arrow" aria-hidden="true"></span
+            ></a>
+            <a class="summary" href="./webapps.html"
+              ><span class="symbol" aria-hidden="true">&gt;_</span>
+              <div>
+                <h3>Web Apps</h3>
+                <p>Small tools, starting with a public IPv4 lookup.</p>
+              </div>
+              <span class="arr inline-arrow" aria-hidden="true"></span
+            ></a>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="contact">
+      <div class="wrap">
+        <div class="contact-top">
+          <div>
+            <div class="kicker">Contact</div>
+            <h2>Let’s connect.</h2>
+            <p>Reach out about research, engineering, or a project.</p>
+          </div>
+          <a class="button primary" href="mailto:audvy@audvy.me"
+            >audvy@audvy.me <span class="arr" aria-hidden="true"></span
+          ></a>
         </div>
-    </div>
-
-    <footer>
-        <p> Contact: 
-        <a href="mailto:audvy@audvy.me" class="dark_mode_link">audvy@audvy.me</a>
-        </p>
-        <a href="https://www.linkedin.com/in/audvy/" target="_blank" class="footer_icons"><img src="https://www.linkedin.com/favicon.ico" width="25" height="25" style="" alt="LinkedIn Profile"></a>
-        <a href="https://github.com/Audvy" target="_blank" class="footer_icons"><img src="github_logo_icon.ico" width="25" height="25" style="" alt="GitHub Profile"></a>
+        <div class="footer-row">
+          <a class="brand" href="./"
+            ><span class="mark" aria-hidden="true"></span>audvy.me</a
+          >
+          <div>
+            <a href="https://github.com/Audvy">GitHub</a
+            ><a href="https://www.linkedin.com/in/audvy/">LinkedIn</a
+            ><a href="./">Home</a>
+          </div>
+        </div>
+      </div>
     </footer>
-
-</body>
-
-
+  </body>
 </html>

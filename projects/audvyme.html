@@ -1,52 +1,111 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-   <link href="../styles.css" rel="stylesheet" /> 
-
-   <title>The audvy.me Project</title>
-   <link rel="icon" href="https://s3.us-east-1.amazonaws.com/audvy.me/favicon.ico">    <!--based on https://www.w3schools.com/html/html_favicon.asp -->
-   <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta property="og:title" content="The audvy.me Project"/>
-   <meta property="og:image" content="https://s3.us-east-1.amazonaws.com/audvy.me/logo.jpg"/>
-   <meta property="og:description" content="The launchpad of all my web development endeavors, audvy.me serves to not just be my personal website, but..."/>
-   <meta property="og:url" content="https://audvy.me"/>
-   <meta property="og:image:width" content="1920" />
-   <meta property="og:image:height" content="1920"/>
-   <meta property="og:type" content="Personal Website"> <!--based on https://stackoverflow.com/questions/72198755/how-to-add-a-thumbnail-for-your-website-using-html -->
-   <meta name="author" content="Audvy">
-</head> 
-<body> 
-   <div id="container_projects">
-
-      <div class="logo">
-         <a href="https://audvy.me">
-           <div>
-             <img src="../favicon.ico" width="150" height="150" alt="projects">
-           </div>
-         </a>
-     </div>
-      <div class="intro">
-         The audvy.me Project
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050506" />
+    <title>The audvy.me Project · Audvy</title>
+    <meta
+      name="description"
+      content="A personal hub for projects, credentials, and experiments across the audvy.me domain."
+    />
+    <link rel="canonical" href="https://audvy.me/projects/audvyme.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The audvy.me Project · Audvy" />
+    <meta
+      property="og:description"
+      content="A personal hub for projects, credentials, and experiments across the audvy.me domain."
+    />
+    <meta property="og:url" content="https://audvy.me/projects/audvyme.html" />
+    <meta property="og:image" content="https://audvy.me/logo.jpg" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module" src="../scripts/site.js"></script>
+  </head>
+  <body>
+    <canvas class="starfield" aria-hidden="true"></canvas>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <a class="skip" href="#main-content">Skip to content</a>
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="../" aria-label="Audvy home"
+          ><span class="mark" aria-hidden="true"></span>audvy.me</a
+        >
+        <nav aria-label="Main navigation">
+          <a href="../">Home</a>
+          <a href="../projects.html" aria-current="page">Projects</a>
+          <a href="../certifications.html">Certifications</a>
+          <a href="../webapps.html">Web Apps</a>
+        </nav>
+        <a class="button" href="mailto:audvy@audvy.me"
+          >Get in touch <span class="arr" aria-hidden="true"></span
+        ></a>
       </div>
-
-        <div class="center audvymeproject">
-            <img src="../images/logo.png">
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="wrap page-content">
+        <div class="case-head">
+          <a class="textlink" href="../projects.html">All projects</a>
+          <div class="page-intro">
+            <div class="kicker">Web development</div>
+            <h1>The audvy.me Project</h1>
+            <p>
+              A personal hub for projects, credentials, and experiments across
+              the audvy.me domain.
+            </p>
+          </div>
         </div>
-
-        <div class="description">
-            <p>The launchpad of all my web development endeavors, audvy.me serves to not just be my personal website, but the portal for all my applications. 
-                The audvy.me project consists of both the audvy.me domain and all subdomains of audvy.me. </p>
+        <figure class="case-image">
+          <img
+            src="../images/audvy-mark.webp"
+            width="340"
+            height="340"
+            decoding="async"
+            alt="The original red Audvy mark on a charcoal background"
+          />
+          <figcaption>The original audvy.me identity.</figcaption>
+        </figure>
+        <div class="case-copy">
+          <section>
+            <h2>A home for ongoing work</h2>
+            <p>
+              I created audvy.me to collect my work in one place and give people
+              a way to get in touch. The site also links to applications hosted
+              under the domain, including the IPv4 lookup tool.
+            </p>
+          </section>
+          <aside class="case-aside">
+            <h2>Tools &amp; methods</h2>
+            <div class="chips">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </aside>
         </div>
-     
-    </div>
-
-    <footer>
-      <p> Contact: 
-      <a href="mailto:audvy@audvy.me" class="dark_mode_link">audvy@audvy.me</a>
-      </p>
-      <a href="https://www.linkedin.com/in/audvy/" target="_blank" class="footer_icons"><img src="https://www.linkedin.com/favicon.ico" width="25" height="25" style="" alt="LinkedIn Profile"></a>
-      <a href="https://github.com/Audvy" target="_blank" class="footer_icons"><img src="../github_logo_icon.ico" width="25" height="25" style="" alt="GitHub Profile"></a>
-  </footer>
-</body> 
+      </div>
+    </main>
+    <footer class="contact">
+      <div class="wrap">
+        <div class="contact-top">
+          <div>
+            <div class="kicker">Contact</div>
+            <h2>Let’s connect.</h2>
+            <p>Reach out about research, engineering, or a project.</p>
+          </div>
+          <a class="button primary" href="mailto:audvy@audvy.me"
+            >audvy@audvy.me <span class="arr" aria-hidden="true"></span
+          ></a>
+        </div>
+        <div class="footer-row">
+          <a class="brand" href="../"
+            ><span class="mark" aria-hidden="true"></span>audvy.me</a
+          >
+          <div>
+            <a href="https://github.com/Audvy">GitHub</a
+            ><a href="https://www.linkedin.com/in/audvy/">LinkedIn</a
+            ><a href="../">Home</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

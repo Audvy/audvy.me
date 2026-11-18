@@ -1,77 +1,93 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
   <head>
-
-    <title>Web Apps</title>
-    <link rel="icon" href="https://s3.us-east-1.amazonaws.com/audvy.me/favicon.ico">    <!--based on https://www.w3schools.com/html/html_favicon.asp -->
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Audvy's site"/>
-    <meta property="og:image" content="https://s3.us-east-1.amazonaws.com/audvy.me/logo.jpg"/>
-    <meta property="og:description" content="The collection of all my current web applications"/>
-    <meta property="og:url" content="https://audvy.me"/>
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:image:height" content="1920"/>
-    <meta property="og:type" content="Personal Website"> <!--based on https://stackoverflow.com/questions/72198755/how-to-add-a-thumbnail-for-your-website-using-html -->
-    <meta name="author" content="Audvy">
-
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@200..700&family=WindSong:wght@400;500&display=swap" rel="stylesheet">
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050506" />
+    <title>Web Apps · Audvy</title>
+    <meta name="description" content="Utilities hosted under audvy.me." />
+    <link rel="canonical" href="https://audvy.me/webapps.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Web Apps · Audvy" />
+    <meta
+      property="og:description"
+      content="Utilities hosted under audvy.me."
+    />
+    <meta property="og:url" content="https://audvy.me/webapps.html" />
+    <meta property="og:image" content="https://audvy.me/logo.jpg" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./scripts/site.js"></script>
   </head>
-
-
   <body>
-    <div id="container">
-        <div id="main">
-            <div class="logo">
-              <a href="https://audvy.me">
-                <div>
-                  <img src="favicon.ico" width="150" height="150" alt="projects">
-                </div>
-              </a>
-          </div>
-          
-            <h1 class="intro">Web Apps</h1> 
-            <div class="items">
-
-              <a href="https://ip.audvy.me/api" class="webapp" target="_blank" style="text-align: center; align-items: center; text-decoration: none">
-                <div class="exptext">
-                    ip.audvy.me
-                </div>
-
-
-                <div>
-                <img src="images/satellite.png" class="page_logo" width="340" alt="AWS Vertically Scalable Architecture">
-                </div>
-
-                <div>
-                    IPv4 Displayer
-                </div>
-
-              </a>
-
-            </div>
-
+    <canvas class="starfield" aria-hidden="true"></canvas>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <a class="skip" href="#main-content">Skip to content</a>
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="./" aria-label="Audvy home"
+          ><span class="mark" aria-hidden="true"></span>audvy.me</a
+        >
+        <nav aria-label="Main navigation">
+          <a href="./">Home</a>
+          <a href="./projects.html">Projects</a>
+          <a href="./certifications.html">Certifications</a>
+          <a href="./webapps.html" aria-current="page">Web Apps</a>
+        </nav>
+        <a class="button" href="mailto:audvy@audvy.me"
+          >Get in touch <span class="arr" aria-hidden="true"></span
+        ></a>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="wrap page-content">
+        <div class="page-intro">
+          <h1>Web Apps</h1>
+          <p>Utilities hosted under audvy.me.</p>
         </div>
-    </div>
-
-    <footer>
-      <p> Contact: 
-      <a href="mailto:audvy@audvy.me" class="dark_mode_link">audvy@audvy.me</a>
-      </p>
-      <a href="https://www.linkedin.com/in/audvy/" target="_blank" class="footer_icons"><img src="https://www.linkedin.com/favicon.ico" width="25" height="25" style="" alt="LinkedIn Profile"></a>
-      <a href="https://github.com/Audvy" target="_blank" class="footer_icons"><img src="github_logo_icon.ico" width="25" height="25" style="" alt="GitHub Profile"></a>
-  </footer>
-
-</body>
-
-
+        <article class="tool">
+          <div class="tool-copy">
+            <div class="kicker">Network utility</div>
+            <h2>IPv4 lookup</h2>
+            <p>
+              See the public IPv4 address your connection presents to the
+              endpoint.
+            </p>
+            <a class="button primary" href="https://ip.audvy.me/api"
+              >Open IPv4 lookup <span class="arr" aria-hidden="true"></span
+            ></a>
+          </div>
+          <div class="terminal">
+            <span><b>GET</b> ip.audvy.me/api</span>
+            <p>Example address</p>
+            <strong>203.0.113.24</strong>
+          </div>
+        </article>
+      </div>
+    </main>
+    <footer class="contact">
+      <div class="wrap">
+        <div class="contact-top">
+          <div>
+            <div class="kicker">Contact</div>
+            <h2>Let’s connect.</h2>
+            <p>Reach out about research, engineering, or a project.</p>
+          </div>
+          <a class="button primary" href="mailto:audvy@audvy.me"
+            >audvy@audvy.me <span class="arr" aria-hidden="true"></span
+          ></a>
+        </div>
+        <div class="footer-row">
+          <a class="brand" href="./"
+            ><span class="mark" aria-hidden="true"></span>audvy.me</a
+          >
+          <div>
+            <a href="https://github.com/Audvy">GitHub</a
+            ><a href="https://www.linkedin.com/in/audvy/">LinkedIn</a
+            ><a href="./">Home</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

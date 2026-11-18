@@ -1,56 +1,130 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-   <link href="../styles.css" rel="stylesheet" /> 
-
-   <title>Revisted AWS Hosted Chatroom</title>
-   <link rel="icon" href="https://s3.us-east-1.amazonaws.com/audvy.me/favicon.ico">    <!--based on https://www.w3schools.com/html/html_favicon.asp -->
-   <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta property="og:title" content="Revisted AWS Hosted Chatroom"/>
-   <meta property="og:image" content="https://s3.us-east-1.amazonaws.com/audvy.me/logo.jpg"/>
-   <meta property="og:description" content="Built as the successor to my team's Award-Winning Hackathon Project, the new highly scalable chatroom can horizontally scale to 100,000s of users..."/>
-   <meta property="og:url" content="https://audvy.me"/>
-   <meta property="og:image:width" content="1920" />
-   <meta property="og:image:height" content="1920"/>
-   <meta property="og:type" content="Personal Website"> <!--based on https://stackoverflow.com/questions/72198755/how-to-add-a-thumbnail-for-your-website-using-html -->
-   <meta name="author" content="Audvy">
-</head> 
-<body> 
-   <div id="container_projects">
-
-      <div class="logo">
-         <a href="https://audvy.me">
-           <div>
-             <img src="../favicon.ico" width="150" height="150" alt="projects">
-           </div>
-         </a>
-     </div>
-      <div class="intro">
-         The Revisited AWS Hosted Chatroom
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050506" />
+    <title>Horizontally Scalable Chatroom · Audvy</title>
+    <meta
+      name="description"
+      content="An AWS redesign that distributes chat traffic across servers so users can talk across instances."
+    />
+    <link
+      rel="canonical"
+      href="https://audvy.me/projects/horizontallyscalablechatroom.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Horizontally Scalable Chatroom · Audvy"
+    />
+    <meta
+      property="og:description"
+      content="An AWS redesign that distributes chat traffic across servers so users can talk across instances."
+    />
+    <meta
+      property="og:url"
+      content="https://audvy.me/projects/horizontallyscalablechatroom.html"
+    />
+    <meta property="og:image" content="https://audvy.me/logo.jpg" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module" src="../scripts/site.js"></script>
+  </head>
+  <body>
+    <canvas class="starfield" aria-hidden="true"></canvas>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <a class="skip" href="#main-content">Skip to content</a>
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="../" aria-label="Audvy home"
+          ><span class="mark" aria-hidden="true"></span>audvy.me</a
+        >
+        <nav aria-label="Main navigation">
+          <a href="../">Home</a>
+          <a href="../projects.html" aria-current="page">Projects</a>
+          <a href="../certifications.html">Certifications</a>
+          <a href="../webapps.html">Web Apps</a>
+        </nav>
+        <a class="button" href="mailto:audvy@audvy.me"
+          >Get in touch <span class="arr" aria-hidden="true"></span
+        ></a>
       </div>
-
-        <div class="center architecture">
-            <img src="../images/RevisitedChatroomArchitecture.png" width="1920" height="1080" class="architecture">
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="wrap page-content">
+        <div class="case-head">
+          <a class="textlink" href="../projects.html">All projects</a>
+          <div class="page-intro">
+            <div class="kicker">Cloud architecture</div>
+            <h1>Horizontally Scalable Chatroom</h1>
+            <p>
+              An AWS redesign that distributes chat traffic across servers so
+              users can talk across instances.
+            </p>
+          </div>
         </div>
-
-        <div class="description">
-            <p>Built as the successor to my team's Award-Winning Hackathon Project, the new highly scalable chatroom can horizontally scale to 100,000s of users using a robust architecture on AWS. 
-                The Chatroom was built using C#, .NET, and WPF forms. Two services were running on the cloud, the chatroom servers, and the server monitoring service. Each chatroom server would receive client traffic from the NLB, and distribute 
-                the traffic to the rest of the chatroom servers, using the Active Servers Table. This architecture allowed for a completely seamless experience from the client side, where users could be connected to different servers but flawlessly interact with 
-                each other as if they were connected to the same server. The chatroom server would also store the messages in the Messages Table, and store connected users in the Users Table.
-                When a new server was spun up, it would "badge in" into the server monitoring service. The monitoring service would log the servers' IPs into the Active Servers RDS Table. Then, the Server Monitoring service would continuously
-                ping the server's IP until a sequence of consecutive pings came back unhealthy. If deemed unhealthy, a server's IP would be deleted from the Active servers table and that server would no longer receive application traffic.</p>
+        <figure class="case-image light">
+          <img
+            src="../images/scalable-chatroom.webp"
+            width="1640"
+            height="923"
+            decoding="async"
+            alt="AWS diagram showing the load balancer, chat servers and data stores"
+          />
+          <figcaption>
+            Architecture diagram for the revised AWS chatroom.
+          </figcaption>
+        </figure>
+        <div class="case-copy">
+          <section>
+            <h2>Scaling across chat servers</h2>
+            <p>
+              The second version of the chatroom used a network load balancer to
+              distribute incoming connections across AWS instances. Chat servers
+              shared messages across the active server fleet so clients could
+              interact regardless of which server handled their connection.
+            </p>
+            <p>
+              A monitoring service registered new servers, polled their health,
+              and removed unhealthy instances from the active server table. The
+              application stored messages and connected users in separate
+              tables.
+            </p>
+          </section>
+          <aside class="case-aside">
+            <h2>Tools &amp; methods</h2>
+            <div class="chips">
+              <span>AWS</span><span>C#</span><span>.NET</span><span>WPF</span
+              ><span>RDS</span><span>Network Load Balancer</span>
+            </div>
+          </aside>
         </div>
-     
-    </div>
-
-    <footer>
-      <p> Contact: 
-      <a href="mailto:audvy@audvy.me" class="dark_mode_link">audvy@audvy.me</a>
-      </p>
-      <a href="https://www.linkedin.com/in/audvy/" target="_blank" class="footer_icons"><img src="https://www.linkedin.com/favicon.ico" width="25" height="25" alt="LinkedIn Profile"></a>
-      <a href="https://github.com/Audvy" target="_blank" class="footer_icons"><img src="../github_logo_icon.ico" width="25" height="25" alt="GitHub Profile"></a>
-  </footer>
-</body> 
+      </div>
+    </main>
+    <footer class="contact">
+      <div class="wrap">
+        <div class="contact-top">
+          <div>
+            <div class="kicker">Contact</div>
+            <h2>Let’s connect.</h2>
+            <p>Reach out about research, engineering, or a project.</p>
+          </div>
+          <a class="button primary" href="mailto:audvy@audvy.me"
+            >audvy@audvy.me <span class="arr" aria-hidden="true"></span
+          ></a>
+        </div>
+        <div class="footer-row">
+          <a class="brand" href="../"
+            ><span class="mark" aria-hidden="true"></span>audvy.me</a
+          >
+          <div>
+            <a href="https://github.com/Audvy">GitHub</a
+            ><a href="https://www.linkedin.com/in/audvy/">LinkedIn</a
+            ><a href="../">Home</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

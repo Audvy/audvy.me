@@ -1,52 +1,123 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-   <link href="../styles.css" rel="stylesheet" /> 
-
-   <title>Neuropoly</title>
-   <link rel="icon" href="https://s3.us-east-1.amazonaws.com/audvy.me/favicon.ico">    <!--based on https://www.w3schools.com/html/html_favicon.asp -->
-   <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta property="og:title" content="Neuropoly"/>
-   <meta property="og:image" content="https://s3.us-east-1.amazonaws.com/audvy.me/logo.jpg"/>
-   <meta property="og:description" content="Neuropoly is a brain-computer interface that analyzes your Occpital Lobe using electrodes to determine what actions..."/>
-   <meta property="og:url" content="https://audvy.me"/>
-   <meta property="og:image:width" content="1920" />
-   <meta property="og:image:height" content="1920"/>
-   <meta property="og:type" content="Personal Website"> <!--based on https://stackoverflow.com/questions/72198755/how-to-add-a-thumbnail-for-your-website-using-html -->
-   <meta name="author" content="Audvy">
-
-</head> 
-<body> 
-   <div id="container_projects">
-
-      <div class="logo">
-         <a href="https://audvy.me">
-           <div>
-             <img src="../favicon.ico" width="150" height="150" alt="projects">
-           </div>
-         </a>
-     </div>
-      <div class="intro">
-         Neuropoly
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050506" />
+    <title>Neuropoly · Audvy</title>
+    <meta
+      name="description"
+      content="An EEG-powered interface that translates visual attention into moves on an online Monopoly board."
+    />
+    <link rel="canonical" href="https://audvy.me/projects/neuropoly.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neuropoly · Audvy" />
+    <meta
+      property="og:description"
+      content="An EEG-powered interface that translates visual attention into moves on an online Monopoly board."
+    />
+    <meta
+      property="og:url"
+      content="https://audvy.me/projects/neuropoly.html"
+    />
+    <meta property="og:image" content="https://audvy.me/logo.jpg" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module" src="../scripts/site.js"></script>
+  </head>
+  <body>
+    <canvas class="starfield" aria-hidden="true"></canvas>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <a class="skip" href="#main-content">Skip to content</a>
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="../" aria-label="Audvy home"
+          ><span class="mark" aria-hidden="true"></span>audvy.me</a
+        >
+        <nav aria-label="Main navigation">
+          <a href="../">Home</a>
+          <a href="../projects.html" aria-current="page">Projects</a>
+          <a href="../certifications.html">Certifications</a>
+          <a href="../webapps.html">Web Apps</a>
+        </nav>
+        <a class="button" href="mailto:audvy@audvy.me"
+          >Get in touch <span class="arr" aria-hidden="true"></span
+        ></a>
       </div>
-
-        <div class="center architecture">
-            <img src="../images/EEG.png" width="1578" height="1080" class="architecture">
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="wrap page-content">
+        <div class="case-head">
+          <a class="textlink" href="../projects.html">All projects</a>
+          <div class="page-intro">
+            <div class="kicker">Brain–computer interfaces</div>
+            <h1>Neuropoly</h1>
+            <p>
+              An EEG-powered interface that translates visual attention into
+              moves on an online Monopoly board.
+            </p>
+          </div>
         </div>
-
-        <div class="description">
-            <p> My team and I developed Neuropoly, which won 2nd best hack at UB Hackathon 2025 (Monopoly Themed). Neuropoly is a Brain-Computer Interface that analyzes live EEG data and plays Monopoly using your brain signals! The player is exposed to a selection of stimuli, each flashing at different frequencies. Using four electrodes placed over the player's Occipital Lobe, Neuropoly performs signal processing and data science techniques over data collected from the EEG to determine the dominant frequency at which the player's Occipital lobe is processing. Based on the frequency of the stimuli the player was looking at, Neuropoly performs an action on an online Monopoly board. </p>
+        <figure class="case-image">
+          <img
+            src="../images/neuropoly-eeg.webp"
+            width="1080"
+            height="720"
+            decoding="async"
+            alt="A Neuropoly participant wearing EEG electrodes in front of the test setup"
+          />
+          <figcaption>
+            The Neuropoly EEG setup at the University at Buffalo hackathon.
+          </figcaption>
+        </figure>
+        <div class="case-copy">
+          <section>
+            <h2>Turning visual attention into input</h2>
+            <p>
+              Our team built Neuropoly at the 2025 University at Buffalo
+              Hackathon. Players look at one of several stimuli, each flashing
+              at a different frequency, to choose a game action.
+            </p>
+            <p>
+              Four electrodes over the occipital lobe capture live EEG. The
+              system estimates the dominant frequency in the signal, matches it
+              to the selected stimulus, then sends the corresponding action to
+              the online board.
+            </p>
+          </section>
+          <aside class="case-aside">
+            <h2>Tools &amp; methods</h2>
+            <p class="award">2nd Best Hack · UB 2025</p>
+            <div class="chips">
+              <span>EEG</span><span>Signal processing</span><span>BCI</span>
+            </div>
+          </aside>
         </div>
-     
-    </div>
-
-    <footer>
-      <p> Contact: 
-      <a href="mailto:audvy@audvy.me" class="dark_mode_link">audvy@audvy.me</a>
-      </p>
-      <a href="https://www.linkedin.com/in/audvy/" target="_blank" class="footer_icons"><img src="https://www.linkedin.com/favicon.ico" width="25" height="25" style="" alt="LinkedIn Profile"></a>
-      <a href="https://github.com/Audvy" target="_blank" class="footer_icons"><img src="../github_logo_icon.ico" width="25" height="25" style="" alt="GitHub Profile"></a>
-  </footer>
-</body> 
+      </div>
+    </main>
+    <footer class="contact">
+      <div class="wrap">
+        <div class="contact-top">
+          <div>
+            <div class="kicker">Contact</div>
+            <h2>Let’s connect.</h2>
+            <p>Reach out about research, engineering, or a project.</p>
+          </div>
+          <a class="button primary" href="mailto:audvy@audvy.me"
+            >audvy@audvy.me <span class="arr" aria-hidden="true"></span
+          ></a>
+        </div>
+        <div class="footer-row">
+          <a class="brand" href="../"
+            ><span class="mark" aria-hidden="true"></span>audvy.me</a
+          >
+          <div>
+            <a href="https://github.com/Audvy">GitHub</a
+            ><a href="https://www.linkedin.com/in/audvy/">LinkedIn</a
+            ><a href="../">Home</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
