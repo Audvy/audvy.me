@@ -355,6 +355,36 @@ nav [aria-current] {
   background: #331d25;
   font: 700 17px var(--mono);
 }
+.symbol--diploma {
+  position: relative;
+}
+.symbol--diploma::before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 9px;
+  width: 24px;
+  height: 17px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  background:
+    linear-gradient(currentColor, currentColor) 4px 4px / 13px 1px no-repeat,
+    linear-gradient(currentColor, currentColor) 4px 8px / 8px 1px no-repeat;
+}
+.symbol--diploma::after {
+  content: '';
+  position: absolute;
+  top: 21px;
+  right: 9px;
+  width: 10px;
+  height: 12px;
+  background: currentColor;
+  clip-path: polygon(50% 0, 79% 12%, 100% 40%, 84% 65%, 89% 100%, 50% 84%, 11% 100%, 16% 65%, 0 40%, 21% 12%);
+}
+.symbol--https {
+  font-size: 10px;
+  letter-spacing: -0.025em;
+}
 .arr {
   position: relative;
   display: inline-block;
@@ -729,19 +759,6 @@ nav [aria-current] {
     #7c151f20 38%,
     transparent 68%
   );
-}
-.hero-art::after {
-  content: '';
-  position: absolute;
-  width: min(80%, 420px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: repeating-radial-gradient(
-    circle,
-    transparent 0 48px,
-    #ff202819 49px 50px
-  );
-  mask-image: radial-gradient(circle, #000 64%, transparent 72%);
 }
 .hero-art .mark {
   width: clamp(105px, 16vw, 226px);
